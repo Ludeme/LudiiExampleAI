@@ -1,3 +1,5 @@
+<img align="right" src="./resources/ludii-logo-64x64.png">
+
 # Ludii Example AI
 
 This project contains instructions and examples for the implementation of 
