@@ -123,4 +123,4 @@ Alternatively, the following email address may be used: `dennis(dot)soemers(at)m
 
 This repository is part of the European Research Council-funded Digital Ludeme Project (ERC Consolidator Grant \#771292) run by Cameron Browne at Maastricht University's Department of Data Science and Knowledge Engineering. 
 
-![European Research Council Logo](https://erc.europa.eu/sites/default/files/LOGO_ERC-FLAG_EU_.jpg "Funded by the European Research Council")
+<a href="https://erc.europa.eu/"><img src="https://erc.europa.eu/sites/default/files/LOGO_ERC-FLAG_EU_.jpg" title="Funded by the European Research Council" alt="European Research Council Logo" align="center" style="max-height:256px"></a>
