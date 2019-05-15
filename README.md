@@ -24,14 +24,11 @@ is no concrete timeline for when this will be supported.
 
 1. Download [Ludii.jar](http://www.ludeme.eu/) (TO DO: update URL). This is the
 JAR file that can also be used to launch the Ludii application.
-
 2. Create a new Java project using your favourite IDE. You can also create a
 fork of this [github repository](https://github.com/DennisSoemers/LudiiExampleAI)
 to get started with some example implementations of basic agents.
-
 3. Make sure to add the Ludii.jar file downloaded in step 1 as a library for
 your project.
-
 4. Any agent that you'd like to implement will have to extend the abstract class
 `util.AI`. This contains two methods that may be overridden:
 	1. `public Move selectAction(final Game game, 
@@ -47,7 +44,6 @@ your project.
 	determined, but before the initial game state has been generated. 
 For a simple example class that extends this abstract class, see the 
 [Example Random AI](src/random/RandomAI.java).
-
 5. Export your project to a new JAR file.
 
 ### Loading AI in the Ludii Application
