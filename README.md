@@ -11,6 +11,16 @@ Agents implemented according to the instructions on this page will also be
 suitable for submission to any future agent-based playing competitions
 organised using the Ludii system.
 
+## Table of Contents
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+- [Example Agents](#example-agents)
+- [Citing Information](#citing-information)
+- [Background Info](#background-info)
+- [Contact Info](#contact-info)
+- [Changelog](#changelog)
+- [Acknowledgements](#acknowledgements)
+
 ## Requirements
 
 As of this time, only the development of agents in Java is supported. The
