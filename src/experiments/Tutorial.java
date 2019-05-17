@@ -108,7 +108,7 @@ public class Tutorial
 		}
 		
 		//---------------------------------------------------------------------
-		
+
 		// now we're going to have a look at playing a few full games, using AI
 		
 		// first, let's instantiate some agents
@@ -156,20 +156,9 @@ public class Tutorial
 			// keep going until the game is over
 			while (!context.trial().over())
 			{
-				for (final ContainerState containerState : trial.state().containerStates())
-				{
-					System.out.println("Empty locations = " + containerState.empty().bitSet());
-					System.out.println("Who = " + containerState.whoChunkSet().toChunkString());
-					System.out.println("What = " + containerState.whatChunkSet().toChunkString());
-				}
-				
-				game.moves(context);
-				
 				// figure out which player is to move
 				final int mover = context.state().mover();
-				System.out.println("mover = " + mover);
-				System.out.println();
-				
+								
 				// retrieve mover from list of agents
 				final AI agent = agents.get(mover);
 				
@@ -183,13 +172,13 @@ public class Tutorial
 							SearchLimits.Seconds, 
 							1.0
 						);
-				
+								
 				// apply the chosen move
 				game.apply(context, move);
 			}
 			
 			// let's see who won
-			System.err.println("Winner = " + context.trial().status().winner());
+			System.out.println("Winner = " + context.trial().status().winner());
 		}
 	}
 	
