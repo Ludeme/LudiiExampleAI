@@ -35,7 +35,7 @@ public class Tutorial
 		
 		// one of the games is "Amazons.lud". Let's load it
 		final Game game = GameLoader.loadGameFromName("Amazons.lud");
-		game.create();
+		game.create(0);
 		
 		// the game's "stateFlags" contain properties of the game that may be
 		// important for some AI algorithms to know about
@@ -54,7 +54,7 @@ public class Tutorial
 		
 		// to be able to play the game, we need to instantiate "Trial" and "Context" objects
 		final Trial trial = new Trial(game);
-		final Context context = new Context(game, trial);
+		final Context context = new Context(game, trial, null);
 		
 		// let's start a game (setting up the initial game state)
 		game.start(context);
@@ -69,10 +69,10 @@ public class Tutorial
 			System.out.println("Empty locations = " + containerState.empty().bitSet());
 			
 			// for every location that is owned by a player, print the owner
-			System.out.println("Who = " + containerState.whoChunkSet().toChunkString());
+			System.out.println("Who = " + containerState.cloneWho().toChunkString());
 			
 			// for every location that is occupied by a piece, print what piece occupies it
-			System.out.println("What = " + containerState.whatChunkSet().toChunkString());
+			System.out.println("What = " + containerState.cloneWhat().toChunkString());
 		}
 		
 		// print the full list of all legal moves
@@ -89,8 +89,8 @@ public class Tutorial
 		for (final ContainerState containerState : trial.state().containerStates())
 		{
 			System.out.println("Empty locations = " + containerState.empty().bitSet());
-			System.out.println("Who = " + containerState.whoChunkSet().toChunkString());
-			System.out.println("What = " + containerState.whatChunkSet().toChunkString());
+			System.out.println("Who = " + containerState.cloneWho().toChunkString());
+			System.out.println("What = " + containerState.cloneWhat().toChunkString());
 		}
 		
 		// request legal moves again and play one of them again
@@ -103,8 +103,8 @@ public class Tutorial
 		for (final ContainerState containerState : trial.state().containerStates())
 		{
 			System.out.println("Empty locations = " + containerState.empty().bitSet());
-			System.out.println("Who = " + containerState.whoChunkSet().toChunkString());
-			System.out.println("What = " + containerState.whatChunkSet().toChunkString());
+			System.out.println("Who = " + containerState.cloneWho().toChunkString());
+			System.out.println("What = " + containerState.cloneWhat().toChunkString());
 		}
 		
 		//---------------------------------------------------------------------

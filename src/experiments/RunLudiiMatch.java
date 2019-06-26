@@ -55,7 +55,7 @@ public class RunLudiiMatch
 	{
 		// load and create game
 		final Game game = GameLoader.loadGameFromName(GAME_NAME);
-		game.create();
+		game.create(0);
 		
 		// set up our match
 		final Match match = 

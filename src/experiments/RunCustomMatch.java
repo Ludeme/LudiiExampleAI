@@ -64,10 +64,10 @@ public class RunCustomMatch
 	{
 		// load and create game
 		final Game game = GameLoader.loadGameFromName(GAME_NAME);
-		game.create();
+		game.create(0);
 
 		final Trial trial = new Trial(game);
-		final Context context = new Context(game, trial);
+		final Context context = new Context(game, trial, null);
 		
 		for (int gameCounter = 0; gameCounter < NUM_GAMES; ++gameCounter)
 		{
