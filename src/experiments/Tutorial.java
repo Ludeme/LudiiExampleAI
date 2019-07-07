@@ -34,7 +34,7 @@ public class Tutorial
 		System.out.println("Built-in games = " + Arrays.toString(games));
 		
 		// one of the games is "Amazons.lud". Let's load it
-		final Game game = GameLoader.loadGameFromName("Amazons.lud");
+		final Game game = GameLoader.loadGameFromNameForTesting("Amazons.lud");
 		game.create(0);
 		
 		// the game's "stateFlags" contain properties of the game that may be
