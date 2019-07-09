@@ -10,7 +10,6 @@ import player.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
-import util.AI.SearchLimits;
 import util.Context;
 import util.Move;
 import util.Trial;
@@ -34,7 +33,7 @@ public class Tutorial
 		System.out.println("Built-in games = " + Arrays.toString(games));
 		
 		// one of the games is "Amazons.lud". Let's load it
-		final Game game = GameLoader.loadGameFromNameForTesting("Amazons.lud");
+		final Game game = GameLoader.loadGameFromName("Amazons.lud");
 		game.create(0);
 		
 		// the game's "stateFlags" contain properties of the game that may be
@@ -169,8 +168,9 @@ public class Tutorial
 						(
 							game, 
 							new Context(context),
-							SearchLimits.Seconds, 
-							1.0
+							1.0,
+							-1,
+							-1
 						);
 								
 				// apply the chosen move

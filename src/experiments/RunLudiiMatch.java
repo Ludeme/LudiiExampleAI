@@ -8,7 +8,6 @@ import player.experiments.Match;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
-import util.AI.SearchLimits;
 
 /**
  * Example of an experiment that uses Ludii's built-in Match class to
@@ -54,7 +53,7 @@ public class RunLudiiMatch
 	public static void main(final String[] args)
 	{
 		// load and create game
-		final Game game = GameLoader.loadGameFromNameForTesting(GAME_NAME);
+		final Game game = GameLoader.loadGameFromName(GAME_NAME);
 		game.create(0);
 		
 		// set up our match
@@ -63,8 +62,7 @@ public class RunLudiiMatch
 				.setGameName(GAME_NAME)
 				.setAgents(Arrays.asList(AGENTS))
 				.setNumGames(10)
-				.setLimitType(SearchLimits.Seconds)
-				.setLimitValue(1.0)
+				.setMaxSeconds(1.0)
 				.setRotateAgents(true);
 		
 		// start playing

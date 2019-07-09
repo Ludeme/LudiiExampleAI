@@ -5,7 +5,6 @@ import player.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
-import util.AI.SearchLimits;
 import util.Context;
 import util.Move;
 import util.Trial;
@@ -63,7 +62,7 @@ public class RunCustomMatch
 	public static void main(final String[] args)
 	{
 		// load and create game
-		final Game game = GameLoader.loadGameFromNameForTesting(GAME_NAME);
+		final Game game = GameLoader.loadGameFromName(GAME_NAME);
 		game.create(0);
 
 		final Trial trial = new Trial(game);
@@ -96,9 +95,10 @@ public class RunCustomMatch
 				final Move move = ai.selectAction
 						(
 							game, 
-							new Context(context),
-							SearchLimits.Seconds, 
-							1.0
+							new Context(context), 
+							1.0,
+							-1,
+							-1
 						);
 
 				// apply chosen action

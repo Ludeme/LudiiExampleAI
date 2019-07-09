@@ -34,8 +34,9 @@ public class RandomAI extends AI
 	(
 		final Game game, 
 		final Context context, 
-		final SearchLimits limitType, 
-		final double limitValue
+		final double maxSeconds,
+		final int maxIterations,
+		final int maxDepth
 	)
 	{
 		final FastArrayList<Move> legalMoves = game.moves(context).moves();
