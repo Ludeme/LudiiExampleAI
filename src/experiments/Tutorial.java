@@ -162,13 +162,13 @@ public class Tutorial
 				final AI agent = agents.get(mover);
 				
 				// ask agent to select a move
-				// we'll give them a search time limit of 1.0 seconds
+				// we'll give them a search time limit of 0.2 seconds per decision
 				// IMPORTANT: pass a copy of the context, not the context object directly
 				final Move move = agent.selectAction
 						(
 							game, 
 							new Context(context),
-							1.0,
+							0.2,
 							-1,
 							-1
 						);
@@ -180,6 +180,9 @@ public class Tutorial
 			// let's see who won
 			System.out.println("Winner = " + context.trial().status().winner());
 		}
+		
+		// The above implementation explicitly encodes the control flow of an alternating-move game,
+		// and would not work correctly with a simultaneous-move game.
 	}
 	
 }
