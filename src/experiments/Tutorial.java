@@ -226,7 +226,7 @@ public class Tutorial
 				// queried to return a move, and that move is applied. In a
 				// simultaneous-move game, it means that ALL active players are
 				// queried to return moves, and they are all applied together.
-				model.startNewStep(trial, ais, 0.2);
+				model.startNewStep(context, ais, 0.2);
 				
 				// In the following loop, we wait around until the model tells
 				// us that it's ready with the processing of the step we asked
