@@ -191,7 +191,7 @@ public class Tutorial
 		// and Rock-Paper-Scissors (a simultaneous-move game)
 		for (final String gameName : new String[]{"Hex.lud", "Rock-Paper-Scissors.lud"})
 		{
-			game = GameLoader.loadGameFromName("Amazons.lud");
+			game = GameLoader.loadGameFromName(gameName);
 			game.create(0);
 			
 			trial = new Trial(game);
