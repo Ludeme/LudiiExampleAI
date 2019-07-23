@@ -51,7 +51,7 @@ public class RandomAI extends AI
 	}
 	
 	@Override
-	public void initAI(final Game game)
+	public void initAI(final Game game, final int playerID)
 	{
 		// do nothing
 	}

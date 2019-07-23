@@ -147,10 +147,9 @@ public class Tutorial
 			game.start(context);
 			
 			// (re)initialise our agents
-			for (final AI agent : agents)
+			for (int p = 1; p < agents.size(); ++p)
 			{
-				if (agent != null)
-					agent.initAI(game);
+				agents.get(p).initAI(game, p);
 			}
 			
 			// keep going until the game is over
@@ -203,8 +202,8 @@ public class Tutorial
 			ais.add(null);
 			ais.add(MCTS.createUCT());
 			ais.add(MCTS.createUCT());
-			ais.get(1).initAI(game);
-			ais.get(2).initAI(game);
+			ais.get(1).initAI(game, 1);
+			ais.get(2).initAI(game, 2);
 			
 			// This model object is the thing that will handle control flow for us
 			final Model model = context.model();

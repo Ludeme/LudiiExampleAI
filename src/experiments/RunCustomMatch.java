@@ -80,12 +80,9 @@ public class RunCustomMatch
 			// note that it is also possible to use different kinds of
 			// agents which do not extend this class, and call whatever methods
 			// you like on them
-			for (final AI ai : AGENTS)
+			for (int p = 1; p < AGENTS.length; ++p)
 			{
-				if (ai != null)
-				{
-					ai.initAI(game);
-				}
+				AGENTS[p].initAI(game, p);
 			}
 			
 			while (!context.trial().over())
