@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import game.Game;
+import game.mode.model.Model;
 import main.FastArrayList;
 import player.GameLoader;
 import random.RandomAI;
@@ -33,7 +34,7 @@ public class Tutorial
 		System.out.println("Built-in games = " + Arrays.toString(games));
 		
 		// one of the games is "Amazons.lud". Let's load it
-		final Game game = GameLoader.loadGameFromName("Amazons.lud");
+		Game game = GameLoader.loadGameFromName("Amazons.lud");
 		game.create(0);
 		
 		// the game's "stateFlags" contain properties of the game that may be
@@ -52,8 +53,8 @@ public class Tutorial
 		System.out.println(game.name() + " is a " + numPlayers + "-player game.");
 		
 		// to be able to play the game, we need to instantiate "Trial" and "Context" objects
-		final Trial trial = new Trial(game);
-		final Context context = new Context(game, trial, null);
+		Trial trial = new Trial(game);
+		Context context = new Context(game, trial, null);
 		
 		// let's start a game (setting up the initial game state)
 		game.start(context);
@@ -183,6 +184,81 @@ public class Tutorial
 		
 		// The above implementation explicitly encodes the control flow of an alternating-move game,
 		// and would not work correctly with a simultaneous-move game.
+		//
+		// Games can also be run using the following approach, which will work for
+		// alternating-move AND simultaneous-move games.
+		// We'll demonstrate this with Hex (an alternating-move game), 
+		// and Rock-Paper-Scissors (a simultaneous-move game)
+		for (final String gameName : new String[]{"Hex.lud", "Rock-Paper-Scissors.lud"})
+		{
+			game = GameLoader.loadGameFromName("Amazons.lud");
+			game.create(0);
+			
+			trial = new Trial(game);
+			context = new Context(game, trial, null);
+			game.start(context);
+			
+			// Create and init two UCT agents
+			final List<AI> ais = new ArrayList<AI>(3);
+			ais.add(null);
+			ais.add(MCTS.createUCT());
+			ais.add(MCTS.createUCT());
+			ais.get(1).initAI(game);
+			ais.get(2).initAI(game);
+			
+			// This model object is the thing that will handle control flow for us
+			final Model model = context.model();
+			
+			// Keep going until the game is over...
+			while (!trial.over())
+			{
+				// The following call tells the model it should start a new "step"
+				// using the given list of AIs, with 0.2 seconds of thinking time
+				// per decision, per agent.
+				//
+				// The behaviour of this call depends on whether the model is for
+				// alternating-move games or simultaneous-move games, but the basic
+				// premise is that whatever AI(s) is (are) supposed to make a move
+				// will start thinking about its move, and apply it to the game
+				// state once the decision has been made.
+				//
+				// In an alternating-move game, this means a single agent is
+				// queried to return a move, and that move is applied. In a
+				// simultaneous-move game, it means that ALL active players are
+				// queried to return moves, and they are all applied together.
+				model.startNewStep(trial, ais, 0.2);
+				
+				// In the following loop, we wait around until the model tells
+				// us that it's ready with the processing of the step we asked
+				// it to start.
+				//
+				// Generally this wouldn't be needed, because the startNewStep()
+				// call should block and only return once any relevant AIs have
+				// selected and applied their move to the game state. However,
+				// the behaviour of the startNewStep() can be modified in various
+				// ways by adding additional arguments. One possible modification
+				// is to have it return immediately (which implies that any
+				// AI-thinking must be performed in a separate Thread). A loop
+				// like the one below may then, for example, be used for 
+				// visualisation of the AI's thinking process, or for processing
+				// human-player input in case any of the AIs were set to null.
+				while (!model.isReady())
+				{
+					try
+					{
+						Thread.sleep(100);
+					}
+					catch (final InterruptedException e)
+					{
+						e.printStackTrace();
+					}
+				}
+				
+				// There is no need to explicitly apply any moves here anymore;
+				// if model.isReady() returns true, this means we're ready for
+				// the next time step!
+			}
+		}
 	}
 	
 }
