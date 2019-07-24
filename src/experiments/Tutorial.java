@@ -188,7 +188,7 @@ public class Tutorial
 		// alternating-move AND simultaneous-move games.
 		// We'll demonstrate this with Hex (an alternating-move game), 
 		// and Rock-Paper-Scissors (a simultaneous-move game)
-		for (final String gameName : new String[]{"Hex.lud", "Rock-Paper-Scissors.lud"})
+		for (final String gameName : new String[]{"Hex.lud", "simultaneous/Rock-Paper-Scissors.lud"})
 		{
 			game = GameLoader.loadGameFromName(gameName);
 			game.create(0);
@@ -200,8 +200,8 @@ public class Tutorial
 			// Create and init two UCT agents
 			final List<AI> ais = new ArrayList<AI>(3);
 			ais.add(null);
-			ais.add(MCTS.createUCT());
-			ais.add(MCTS.createUCT());
+			ais.add(new RandomAI());
+			ais.add(new RandomAI());
 			ais.get(1).initAI(game, 1);
 			ais.get(2).initAI(game, 2);
 			
