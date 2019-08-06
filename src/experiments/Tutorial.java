@@ -54,7 +54,7 @@ public class Tutorial
 		
 		// to be able to play the game, we need to instantiate "Trial" and "Context" objects
 		Trial trial = new Trial(game);
-		Context context = new Context(game, trial, null);
+		Context context = new Context(game, trial, null, null);
 		
 		// let's start a game (setting up the initial game state)
 		game.start(context);
@@ -194,7 +194,7 @@ public class Tutorial
 			game.create(0);
 			
 			trial = new Trial(game);
-			context = new Context(game, trial, null);
+			context = new Context(game, trial, null, null);
 			game.start(context);
 			
 			// Create and init two UCT agents

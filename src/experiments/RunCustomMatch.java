@@ -66,7 +66,7 @@ public class RunCustomMatch
 		game.create(0);
 
 		final Trial trial = new Trial(game);
-		final Context context = new Context(game, trial, null);
+		final Context context = new Context(game, trial, null, null);
 		
 		for (int gameCounter = 0; gameCounter < NUM_GAMES; ++gameCounter)
 		{
