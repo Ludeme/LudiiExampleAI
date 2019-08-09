@@ -7,9 +7,9 @@ import java.util.List;
 import game.Game;
 import game.mode.model.Model;
 import main.FastArrayList;
+import mcts.ExampleUCT;
 import player.GameLoader;
 import random.RandomAI;
-import search.mcts.MCTS;
 import util.AI;
 import util.Context;
 import util.Move;
@@ -34,7 +34,7 @@ public class Tutorial
 		System.out.println("Built-in games = " + Arrays.toString(games));
 		
 		// one of the games is "Amazons.lud". Let's load it
-		Game game = GameLoader.loadGameFromName("Amazons.lud");
+		Game game = GameLoader.loadGameFromName("board/space/blocking/Amazons.lud");
 		game.create(0);
 		
 		// the game's "stateFlags" contain properties of the game that may be
@@ -124,9 +124,8 @@ public class Tutorial
 			}
 			else
 			{
-				// for the other half of the agents, we'll use a standard UCT agent
-				// which is built-in in Ludii
-				agents.add(MCTS.createUCT());
+				// for the other half of the agents, we'll use our example UCT agent
+				agents.add(new ExampleUCT());
 			}
 		}
 		
@@ -178,7 +177,7 @@ public class Tutorial
 			}
 			
 			// let's see who won
-			System.out.println("Winner = " + context.trial().status().winner());
+			System.out.println(context.trial().status());
 		}
 		
 		// The above implementation explicitly encodes the control flow of an alternating-move game,
@@ -188,7 +187,12 @@ public class Tutorial
 		// alternating-move AND simultaneous-move games.
 		// We'll demonstrate this with Hex (an alternating-move game), 
 		// and Rock-Paper-Scissors (a simultaneous-move game)
-		for (final String gameName : new String[]{"Hex.lud", "simultaneous/Rock-Paper-Scissors.lud"})
+		for 
+		(
+			final String gameName : new String[]{
+				"board/space/connection/Hex.lud", 
+				"mathematical/hand/Rock-Paper-Scissors.lud"}
+		)
 		{
 			game = GameLoader.loadGameFromName(gameName);
 			game.create(0);
@@ -197,11 +201,13 @@ public class Tutorial
 			context = new Context(game, trial, null, null);
 			game.start(context);
 			
+			System.out.println("We're playing " + game.name() + "!");
+			
 			// Create and init two UCT agents
 			final List<AI> ais = new ArrayList<AI>(3);
 			ais.add(null);
-			ais.add(new RandomAI());
-			ais.add(new RandomAI());
+			ais.add(new ExampleUCT());
+			ais.add(new ExampleUCT());
 			ais.get(1).initAI(game, 1);
 			ais.get(2).initAI(game, 2);
 			
@@ -257,6 +263,9 @@ public class Tutorial
 				// if model.isReady() returns true, this means we're ready for
 				// the next time step!
 			}
+			
+			// let's see what the result is
+			System.out.println(context.trial().status());
 		}
 	}
 	
