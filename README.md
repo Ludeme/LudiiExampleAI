@@ -11,6 +11,10 @@ Agents implemented according to the instructions on this page will also be
 suitable for submission to any future agent-based playing competitions
 organised using the Ludii system.
 
+Most of the documentation found in this repository may also be found in
+the Ludii User Guide, accessible from the 
+[Ludii webpage](http://ludii.games/index.html).
+
 ## Table of Contents
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
@@ -32,26 +36,30 @@ is no concrete timeline for when this will be supported.
 
 ### AI Development
 
-1. Download [Ludii.jar](http://www.ludeme.eu/) (TO DO: update URL). This is the
+1. Download [Ludii's JAR file](http://ludii.games/downloads.html). This is the
 JAR file that can also be used to launch the Ludii application.
 2. Create a new Java project using your favourite IDE. You can also create a
-fork of this [github repository](https://github.com/DennisSoemers/LudiiExampleAI)
+fork of this [github repository](https://github.com/Ludeme/LudiiExampleAI)
 to get started with some example implementations of basic agents.
-3. Make sure to add the Ludii.jar file downloaded in step 1 as a library for
+3. Make sure to add the Ludii's JAR file downloaded in step 1 as a library for
 your project.
 4. Any agent that you'd like to implement will have to extend the abstract class
-`util.AI`. This contains two methods that may be overridden:
-	1. `public Move selectAction(final Game game, 
-	final Context context, final SearchLimits limitType, final double limitValue)`.
+`util.AI`. This contains three methods that may be overridden:
+	1. `public Move selectAction(final Game game, final Context context, 
+	final double maxSeconds, final int maxIterations, final int maxDepth)`.
 	It takes a reference to the `game` being played, and the current 
 	`context` (which contains, among other data, the current game state) as
 	arguments, and should return the next `Move` to be played by the agent. 
-	The final two arguments specify the type of any limit that the agent should
-	obey (e.g. max search depth, or max iteration count, or max number of seconds),
-	and the value of the limit (depth level, or number of iterations, or number of seconds).
-	2. `public void initAI(final Game game)`. This method can be used
+	The final three arguments can be used to restrict the agent's processing
+	(its search time, or its maximum iteration count or search depth for example).
+	2. `public void initAI(final Game game, final int playerID)`. This method can be used
 	to perform any initialisation of the AI when the game to be played has been
 	determined, but before the initial game state has been generated. 
+	3. `public boolean supportsGame(final Game game)`. This method has a default implementation
+	to return `true` for any game, but may be overridden to return `false` for games
+	that your agent cannot play. For example, it may be unable to play simultaneous-move
+	games, and then be implemented to always return `false` for those. Ludii will then
+	know not to try to make your AI play such a game.
 For a simple example class that extends this abstract class, see the 
 [Example Random AI](src/random/RandomAI.java).
 5. Export your project to a new JAR file.
@@ -87,6 +95,7 @@ wish to try loading agents from the modified JAR file.
 ## Example Agents
 
 - [Random AI](src/random/RandomAI.java).
+- [Example UCT](src/mcts/ExampleUCT.java).
 
 ## Citing Information
 
@@ -120,12 +129,12 @@ Digital Ludeme Project. More info on the project and the system can be found on:
 
 The preferred method for getting help with troubleshooting, suggesting or
 requesting additional functionality, or asking other questions about AI
-development for Ludii, is [creating new Issues on the github repository](https://github.com/DennisSoemers/LudiiExampleAI/issues).
-Alternatively, the following email address may be used: `dennis(dot)soemers(at)maastrichtuniversity(dot)nl`.
+development for Ludii, is [creating new Issues on the github repository](https://github.com/Ludeme/LudiiExampleAI/issues).
+Alternatively, the following email address may be used: `ludii(dot)games(at)gmail(dot)com`.
 
 ## Changelog
 
-- 11 August, 2019: Initial release.
+- 13 August, 2019: Initial release.
 
 ## Acknowledgements
 
