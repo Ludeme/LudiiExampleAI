@@ -4,6 +4,7 @@
 
 [![license](https://img.shields.io/github/license/Ludeme/LudiiExampleAI)](LICENSE)
 [![release-version](https://img.shields.io/github/release-pre/Ludeme/LudiiExampleAI)](https://github.com/Ludeme/LudiiExampleAI/releases)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![code-size](https://img.shields.io/github/languages/code-size/Ludeme/LudiiExampleAI)
 ![top-language](https://img.shields.io/github/languages/top/Ludeme/LudiiExampleAI)
 [![twitter](https://img.shields.io/twitter/follow/ludiigames?style=social)](https://twitter.com/intent/follow?screen_name=ludiigames)
