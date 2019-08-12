@@ -3,6 +3,7 @@
 # Ludii Example AI
 
 [![license](https://img.shields.io/github/license/Ludeme/LudiiExampleAI)](LICENSE)
+[![release-version](https://img.shields.io/github/release-pre/Ludeme/LudiiExampleAI)](https://github.com/Ludeme/LudiiExampleAI/releases)
 [![twitter](https://img.shields.io/twitter/follow/ludiigames?style=social)](https://twitter.com/intent/follow?screen_name=ludiigames)
 
 This project contains instructions and examples for the implementation of 
