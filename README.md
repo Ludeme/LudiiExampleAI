@@ -95,7 +95,8 @@ wish to try loading agents from the modified JAR file.
 ## Example Agents
 
 - [Random AI](src/random/RandomAI.java).
-- [Example UCT](src/mcts/ExampleUCT.java).
+- [Example UCT](src/mcts/ExampleUCT.java) (only supports deterministic, alternating-move games).
+- [Example Decoupled UCT](src/mcts/ExampleDUCT.java) (only supporst deterministic, simultaneous-move games).
 
 ## Citing Information
 
