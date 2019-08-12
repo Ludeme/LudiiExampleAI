@@ -2,6 +2,9 @@
 
 # Ludii Example AI
 
+[![license](https://img.shields.io/github/license/Ludeme/LudiiExampleAI)](LICENSE)
+[![twitter](https://img.shields.io/twitter/follow/ludiigames?style=social)](https://twitter.com/intent/follow?screen_name=ludiigames)
+
 This project contains instructions and examples for the implementation of 
 third-party AI algorithms / agents for the Ludii general game system. After
 developing your own agent, you can load it locally through the GUI of the
