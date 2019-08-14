@@ -297,31 +297,31 @@ public class ExampleDUCT extends AI
 	private static class Node
 	{
 		/** Our parent node */
-		public final Node parent;
+		private final Node parent;
 		
 		/** This objects contains the game state for this node (this is why we don't support stochastic games) */
-		public final Context context;
+		private final Context context;
 		
 		/** Total visit count going through this node */
-		public int totalVisitCount = 0;
+		private int totalVisitCount = 0;
 		
 		/** For every player, for every child move, a visit count */
-		public final int[][] visitCounts;
+		private final int[][] visitCounts;
 		
 		/** For every player, for every child move, a sum of backpropagated scores */
-		public final double[][] scoreSums;
+		private final double[][] scoreSums;
 		
 		/** Mapping from lists of actions (one per active player) to child nodes */
-		public final Map<List<Action>, Node> children = new HashMap<List<Action>, Node>();
+		private final Map<List<Action>, Node> children = new HashMap<List<Action>, Node>();
 		
 		/** 
 		 * For every player, the index of the legal move we selected for 
 		 * that player in this node in the last (current) MCTS iteration.
 		 */
-		public final int[] lastSelectedMovesPerPlayer;
+		private final int[] lastSelectedMovesPerPlayer;
 		
 		/** For every player index, a list of legal moves in this node */
-		public final List<FastArrayList<Move>> legalMovesPerPlayer;
+		private final List<FastArrayList<Move>> legalMovesPerPlayer;
 		
 		/**
 		 * Constructor

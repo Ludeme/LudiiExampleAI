@@ -264,25 +264,25 @@ public class ExampleUCT extends AI
 	private static class Node
 	{
 		/** Our parent node */
-		public final Node parent;
+		private final Node parent;
 		
 		/** The move that led from parent to this node */
-		public final Move moveFromParent;
+		private final Move moveFromParent;
 		
 		/** This objects contains the game state for this node (this is why we don't support stochastic games) */
-		public final Context context;
+		private final Context context;
 		
 		/** Visit count for this node */
-		public int visitCount = 0;
+		private int visitCount = 0;
 		
 		/** For every player, sum of utilities / scores backpropagated through this node */
-		public final double[] scoreSums;
+		private final double[] scoreSums;
 		
 		/** Child nodes */
-		public final List<Node> children = new ArrayList<Node>();
+		private final List<Node> children = new ArrayList<Node>();
 		
 		/** List of moves for which we did not yet create a child node */
-		public final FastArrayList<Move> unexpandedMoves;
+		private final FastArrayList<Move> unexpandedMoves;
 		
 		/**
 		 * Constructor
