@@ -62,7 +62,7 @@ public class RunCustomMatch
 		game.create(0);
 
 		final Trial trial = new Trial(game);
-		final Context context = new Context(game, trial, null, null);
+		final Context context = new Context(game, trial);
 		final List<AI> ais = new ArrayList<AI>();
 		ais.add(null);
 		ais.add(new RandomAI());

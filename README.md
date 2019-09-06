@@ -142,6 +142,7 @@ Alternatively, the following email address may be used: `ludii(dot)games(at)gmai
 
 ## Changelog
 
+- 6 September, 2019: Updated repository for compatibility with new version 0.3.0 of Ludii.
 - 13 August, 2019: Initial release.
 
 ## Acknowledgements

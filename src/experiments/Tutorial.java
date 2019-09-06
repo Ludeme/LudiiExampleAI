@@ -54,7 +54,7 @@ public class Tutorial
 		
 		// to be able to play the game, we need to instantiate "Trial" and "Context" objects
 		Trial trial = new Trial(game);
-		Context context = new Context(game, trial, null, null);
+		Context context = new Context(game, trial);
 		
 		// let's start a game (setting up the initial game state)
 		game.start(context);
@@ -198,7 +198,7 @@ public class Tutorial
 			game.create(0);
 			
 			trial = new Trial(game);
-			context = new Context(game, trial, null, null);
+			context = new Context(game, trial);
 			game.start(context);
 			
 			System.out.println("We're playing " + game.name() + "!");

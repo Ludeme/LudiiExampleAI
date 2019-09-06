@@ -11,7 +11,6 @@ import util.Context;
 import util.Move;
 import util.Trial;
 import util.action.ActionPass;
-import util.state.StateType;
 import utils.AIUtils;
 
 /**
@@ -243,12 +242,10 @@ public class ExampleUCT extends AI
 	@Override
 	public boolean supportsGame(final Game game)
 	{
-		final int stateFlags = game.stateFlags();
-		
-		if ((stateFlags & StateType.Stochastic) != 0)
+		if (game.isStochasticGame())
 			return false;
 		
-		if ((stateFlags & StateType.Simultaneous) != 0)
+		if (!game.isAlternatingMoveGame())
 			return false;
 		
 		return true;

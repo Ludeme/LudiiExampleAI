@@ -15,7 +15,6 @@ import util.Move;
 import util.Trial;
 import util.action.Action;
 import util.action.ActionPass;
-import util.state.StateType;
 import utils.AIUtils;
 
 /**
@@ -270,14 +269,12 @@ public class ExampleDUCT extends AI
 	@Override
 	public boolean supportsGame(final Game game)
 	{
-		final int stateFlags = game.stateFlags();
-		
 		// Don't allow stochastic games
-		if ((stateFlags & StateType.Stochastic) != 0)
+		if (game.isStochasticGame())
 			return false;
 		
 		// Don't allow games which are NOT simultaneous-move games
-		if ((stateFlags & StateType.Simultaneous) == 0)
+		if (game.isAlternatingMoveGame())
 			return false;
 		
 		// Don't allow real-time games
