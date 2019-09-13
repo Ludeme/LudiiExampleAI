@@ -20,7 +20,7 @@ organised using the Ludii system.
 
 Most of the documentation found in this repository may also be found in
 the Ludii User Guide, accessible from the 
-[Ludii webpage](http://ludii.games/index.html).
+[Ludii webpage](http://ludii.games/index.php).
 
 ## Table of Contents
 - [Requirements](#requirements)
@@ -43,7 +43,7 @@ is no concrete timeline for when this will be supported.
 
 ### AI Development
 
-1. Download [Ludii's JAR file](http://ludii.games/downloads.html). This is the
+1. Download [Ludii's JAR file](http://ludii.games/downloads.php). This is the
 JAR file that can also be used to launch the Ludii application.
 2. Create a new Java project using your favourite IDE. You can also create a
 fork of this [github repository](https://github.com/Ludeme/LudiiExampleAI)
