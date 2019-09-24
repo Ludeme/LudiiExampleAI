@@ -1,1 +1,9 @@
 language: java
+script: 
+  # Download latest Ludii.jar
+  - wget -O Ludii.jar https://www.ludii.games/downloads/latest.html
+  # Compile our test
+  - javac -cp Ludii.jar test/uct/TicTacToeUCT.java
+  # Run test
+  - java -cp Ludii.jar test/uct/TicTacToeUCT.java
+  
