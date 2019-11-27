@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import game.Game;
-import game.mode.model.Model;
 import main.FastArrayList;
 import mcts.ExampleUCT;
 import player.GameLoader;
@@ -14,7 +13,8 @@ import util.AI;
 import util.Context;
 import util.Move;
 import util.Trial;
-import util.state.StateType;
+import util.model.Model;
+import util.state.GameType;
 import util.state.containerState.ContainerState;
 
 /**
@@ -42,14 +42,14 @@ public class Tutorial
 		final int stateFlags = game.stateFlags();
 		
 		// for example, we may like to know whether our game has stochastic elements
-		final boolean isStochastic = ((stateFlags & StateType.Stochastic) != 0);
+		final boolean isStochastic = ((stateFlags & GameType.Stochastic) != 0);
 		if (isStochastic)
 			System.out.println(game.name() + " is stochastic.");
 		else
 			System.out.println(game.name() + " is not stochastic.");
 		
 		// figure out how many players are expected to play this game
-		final int numPlayers = game.mode().numPlayers();
+		final int numPlayers = game.players().count();
 		System.out.println(game.name() + " is a " + numPlayers + "-player game.");
 		
 		// to be able to play the game, we need to instantiate "Trial" and "Context" objects
@@ -66,7 +66,7 @@ public class Tutorial
 			// for every container state we find (often just 1), we'll print a few things:
 			
 			// print the collection of locations that are empty
-			System.out.println("Empty locations = " + containerState.empty().bitSet());
+			System.out.println("Empty locations = " + containerState.emptyChunkSet());
 			
 			// for every location that is owned by a player, print the owner
 			System.out.println("Who = " + containerState.cloneWho().toChunkString());
@@ -88,7 +88,7 @@ public class Tutorial
 		// let's print our empty/who/what again, see how they have changed
 		for (final ContainerState containerState : trial.state().containerStates())
 		{
-			System.out.println("Empty locations = " + containerState.empty().bitSet());
+			System.out.println("Empty locations = " + containerState.emptyChunkSet());
 			System.out.println("Who = " + containerState.cloneWho().toChunkString());
 			System.out.println("What = " + containerState.cloneWhat().toChunkString());
 		}
@@ -102,7 +102,7 @@ public class Tutorial
 		// let's have a final look at how our state looks after this second move
 		for (final ContainerState containerState : trial.state().containerStates())
 		{
-			System.out.println("Empty locations = " + containerState.empty().bitSet());
+			System.out.println("Empty locations = " + containerState.emptyChunkSet());
 			System.out.println("Who = " + containerState.cloneWho().toChunkString());
 			System.out.println("What = " + containerState.cloneWhat().toChunkString());
 		}

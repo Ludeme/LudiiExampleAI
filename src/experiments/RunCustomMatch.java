@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import game.Game;
-import game.mode.model.Model;
 import player.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
 import util.Context;
 import util.Trial;
+import util.model.Model;
 
 /**
  * An example of a custom implementation of a match between different AIs,
  * i.e. not using the built-in Match functionality of Ludii.
  * 
  * By creating custom implementations of matches/experiments, we can more
- * easily add our own custom stats to track, and request mvoes from AIs
+ * easily add our own custom stats to track, and request moves from AIs
  * that do not implement Ludii's abstract AI class. The downside is that
  * more boilerplate code must be written.
  * 

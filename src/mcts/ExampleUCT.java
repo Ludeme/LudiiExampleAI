@@ -114,7 +114,7 @@ public class ExampleUCT extends AI
 			while (current != null)
 			{
 				current.visitCount += 1;
-				for (int p = 1; p <= game.mode().numPlayers(); ++p)
+				for (int p = 1; p <= game.players().count(); ++p)
 				{
 					current.scoreSums[p] += utilities[p];
 				}
@@ -294,7 +294,7 @@ public class ExampleUCT extends AI
 			this.moveFromParent = moveFromParent;
 			this.context = context;
 			final Game game = context.game();
-			scoreSums = new double[game.mode().numPlayers() + 1];
+			scoreSums = new double[game.players().count() + 1];
 			
 			// For simplicity, we just take ALL legal moves. 
 			// This means we do not support simultaneous-move games.

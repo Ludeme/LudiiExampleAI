@@ -124,7 +124,7 @@ public class ExampleDUCT extends AI
 				if (current.totalVisitCount > 0)
 				{
 					// This node was not newly expanded in this iteration
-					for (int p = 1; p <= game.mode().numPlayers(); ++p)
+					for (int p = 1; p <= game.players().count(); ++p)
 					{
 						current.visitCounts[p][current.lastSelectedMovesPerPlayer[p]] += 1;
 						current.scoreSums[p][current.lastSelectedMovesPerPlayer[p]] += utilities[p];
@@ -156,7 +156,7 @@ public class ExampleDUCT extends AI
 		// Every player selects its move based on its own, decoupled statistics
 		final List<Action> playerMoves = new ArrayList<Action>();
 		final Game game = current.context.game();
-		final int numPlayers = game.mode().numPlayers();
+		final int numPlayers = game.players().count();
 		
 		for (int p = 1; p <= numPlayers; ++p)
 		{
@@ -331,7 +331,7 @@ public class ExampleDUCT extends AI
 			this.parent = parent;
 			this.context = context;
 			final Game game = context.game();
-			final int numPlayers = game.mode().numPlayers();
+			final int numPlayers = game.players().count();
 			
 			final FastArrayList<Move> allLegalMoves = game.moves(context).moves();
 			
