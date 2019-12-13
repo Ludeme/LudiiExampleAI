@@ -130,7 +130,7 @@ public class Tutorial
 		}
 		
 		// number of games we'd like to play
-		final int numGames = 1;
+		final int numGames = 10;
 		
 		// NOTE: in our following loop through number of games, the different
 		// agents are always assigned the same player number. For example,
