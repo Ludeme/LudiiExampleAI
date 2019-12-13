@@ -39,7 +39,7 @@ public class Tutorial
 		
 		// the game's "stateFlags" contain properties of the game that may be
 		// important for some AI algorithms to know about
-		final int stateFlags = game.stateFlags();
+		final long stateFlags = game.stateFlags();
 		
 		// for example, we may like to know whether our game has stochastic elements
 		final boolean isStochastic = ((stateFlags & GameType.Stochastic) != 0);
@@ -130,7 +130,7 @@ public class Tutorial
 		}
 		
 		// number of games we'd like to play
-		final int numGames = 10;
+		final int numGames = 1;
 		
 		// NOTE: in our following loop through number of games, the different
 		// agents are always assigned the same player number. For example,
