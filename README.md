@@ -1,5 +1,11 @@
 <img align="right" src="./resources/ludii-logo-64x64.png">
 
+# Note on ludii.games website
+
+Due to a cyberattack on our university's network, the ludii.games website that various URLs below link to is temporarily unavailable. In the meantime, Ludii can be downloaded from a link in the top-right corner of http://ludeme.eu/ instead.
+
+---
+
 # Ludii Example AI
 
 [![license](https://img.shields.io/github/license/Ludeme/LudiiExampleAI)](LICENSE)
