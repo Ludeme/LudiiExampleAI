@@ -102,7 +102,8 @@ public class ExampleUCT extends AI
 					null, 
 					0, 
 					-1, 
-					0.f
+					0.f,
+					ThreadLocalRandom.current()
 				);
 			}
 			
