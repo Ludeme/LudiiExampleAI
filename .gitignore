@@ -1,4 +1,6 @@
 /bin/
 /.classpath
+/.idea
 /.project
 /.README.md.html
+*.iml
