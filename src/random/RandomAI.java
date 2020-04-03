@@ -3,12 +3,11 @@ package random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import game.Game;
+import game.types.GameType;
 import main.FastArrayList;
 import util.AI;
 import util.Context;
 import util.Move;
-import util.action.ActionPass;
-import util.state.GameType;
 import utils.AIUtils;
 
 /**
@@ -50,14 +49,12 @@ public class RandomAI extends AI
 		
 		if (legalMoves.isEmpty())
 		{
-			final Move passMove = new Move(new ActionPass());
-			passMove.setMover(player);
-			return passMove;
+			return Game.createPassMove(context);
 		}
 		
 		// If we're playing a simultaneous-move game, some of the legal moves may be 
 		// for different players. Extract only the ones that we can choose.
-		if ((game.stateFlags() & GameType.Simultaneous) != 0)
+		if ((game.stateFlags() & GameType.Simultaneous) != 0L)
 			legalMoves = AIUtils.extractMovesForMover(legalMoves, player);
 		
 		final int r = ThreadLocalRandom.current().nextInt(legalMoves.size());

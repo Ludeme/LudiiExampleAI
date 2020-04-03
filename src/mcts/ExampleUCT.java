@@ -10,7 +10,6 @@ import util.AI;
 import util.Context;
 import util.Move;
 import util.Trial;
-import util.action.ActionPass;
 import utils.AIUtils;
 
 /**
@@ -102,7 +101,8 @@ public class ExampleUCT extends AI
 					null, 
 					0, 
 					-1, 
-					0.f
+					0.f,
+					ThreadLocalRandom.current()
 				);
 			}
 			
@@ -285,7 +285,7 @@ public class ExampleUCT extends AI
 		 * Constructor
 		 * 
 		 * @param parent
-		 * @param moveFromparent
+		 * @param moveFromParent
 		 * @param context
 		 */
 		public Node(final Node parent, final Move moveFromParent, final Context context)
@@ -303,9 +303,7 @@ public class ExampleUCT extends AI
 			if (unexpandedMoves.isEmpty())
 			{
 				// We need to add a forced pass move
-				final Move passMove = new Move(new ActionPass());
-				passMove.setMover(context.trial().state().mover());
-				unexpandedMoves.add(passMove);
+				unexpandedMoves.add(Game.createPassMove(context));
 			}
 			
 			if (parent != null)

@@ -14,7 +14,6 @@ import util.Context;
 import util.Move;
 import util.Trial;
 import util.action.Action;
-import util.action.ActionPass;
 import utils.AIUtils;
 
 /**
@@ -110,7 +109,8 @@ public class ExampleDUCT extends AI
 					null, 
 					0, 
 					-1, 
-					0.f
+					0.f,
+					ThreadLocalRandom.current()
 				);
 			}
 			
@@ -344,9 +344,7 @@ public class ExampleDUCT extends AI
 					
 				if (legalMovesPerPlayer.get(p).isEmpty())
 				{
-					final Move passMove = new Move(new ActionPass());
-					passMove.setMover(p);
-					legalMovesPerPlayer.get(p).add(passMove);
+					legalMovesPerPlayer.get(p).add(Game.createPassMove(context));
 				}
 			}
 			

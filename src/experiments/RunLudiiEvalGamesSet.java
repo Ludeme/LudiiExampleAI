@@ -3,14 +3,14 @@ package experiments;
 import java.util.Arrays;
 
 import game.Game;
-import player.GameLoader;
-import player.experiments.Match;
+import player.experiments.EvalGamesSet;
+import player.utils.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
 
 /**
- * Example of an experiment that uses Ludii's built-in Match class to
+ * Example of an experiment that uses Ludii's built-in EvalGamesSet class to
  * run games between AIs.
  * 
  * See RunCustomMatch for an example that does not use Ludii's built-in Match
@@ -18,13 +18,13 @@ import util.AI;
  * 
  * @author Dennis Soemers
  */
-public class RunLudiiMatch
+public class RunLudiiEvalGamesSet
 {
 	
 	//-------------------------------------------------------------------------
 	
 	/** Name of game we wish to play */
-	static final String GAME_NAME = "board/space/blocking/Amazons.lud";
+	static final String GAME_NAME = "Amazons.lud";
 	
 	/** Whether to create a small GUI that can be used to manually interrupt the experiment */
 	static final boolean USE_GUI = false;
@@ -43,7 +43,7 @@ public class RunLudiiMatch
 	/**
 	 * Constructor
 	 */
-	private RunLudiiMatch()
+	private RunLudiiEvalGamesSet()
 	{
 		// do not instantiate
 	}
@@ -54,11 +54,11 @@ public class RunLudiiMatch
 	{
 		// load and create game
 		final Game game = GameLoader.loadGameFromName(GAME_NAME);
-		game.create(0);
+		game.create();
 		
 		// set up our match
-		final Match match = 
-				new Match(USE_GUI, MAX_WALL_TIME)
+		final EvalGamesSet evalGamesSet = 
+				new EvalGamesSet(USE_GUI, MAX_WALL_TIME)
 				.setGameName(GAME_NAME)
 				.setAgents(Arrays.asList(AGENTS))
 				.setNumGames(10)
@@ -66,7 +66,7 @@ public class RunLudiiMatch
 				.setRotateAgents(true);
 		
 		// start playing
-		match.startMatch();
+		evalGamesSet.startGames();
 	}
 	
 	//-------------------------------------------------------------------------
