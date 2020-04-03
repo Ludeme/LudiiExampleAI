@@ -5,16 +5,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import game.Game;
+import game.types.GameType;
 import main.FastArrayList;
 import mcts.ExampleUCT;
-import player.GameLoader;
+import player.utils.GameLoader;
 import random.RandomAI;
 import util.AI;
 import util.Context;
 import util.Move;
 import util.Trial;
 import util.model.Model;
-import util.state.GameType;
 import util.state.containerState.ContainerState;
 
 /**
@@ -34,7 +34,7 @@ public class Tutorial
 		System.out.println("Built-in games = " + Arrays.toString(games));
 		
 		// one of the games is "Amazons.lud". Let's load it
-		Game game = GameLoader.loadGameFromName("board/space/blocking/Amazons.lud");
+		Game game = GameLoader.loadGameFromName("Amazons.lud");
 		game.create();
 		
 		// the game's "stateFlags" contain properties of the game that may be
@@ -42,7 +42,7 @@ public class Tutorial
 		final long stateFlags = game.stateFlags();
 		
 		// for example, we may like to know whether our game has stochastic elements
-		final boolean isStochastic = ((stateFlags & GameType.Stochastic) != 0);
+		final boolean isStochastic = ((stateFlags & GameType.Stochastic) != 0L);
 		if (isStochastic)
 			System.out.println(game.name() + " is stochastic.");
 		else
@@ -66,13 +66,13 @@ public class Tutorial
 			// for every container state we find (often just 1), we'll print a few things:
 			
 			// print the collection of locations that are empty
-			System.out.println("Empty locations = " + containerState.emptyChunkSet());
+			System.out.println("Empty locations = " + containerState.emptyChunkSetCell());
 			
 			// for every location that is owned by a player, print the owner
-			System.out.println("Who = " + containerState.cloneWho().toChunkString());
+			System.out.println("Who = " + containerState.cloneWhoCell().toChunkString());
 			
 			// for every location that is occupied by a piece, print what piece occupies it
-			System.out.println("What = " + containerState.cloneWhat().toChunkString());
+			System.out.println("What = " + containerState.cloneWhatCell().toChunkString());
 		}
 		
 		// print the full list of all legal moves
@@ -88,9 +88,9 @@ public class Tutorial
 		// let's print our empty/who/what again, see how they have changed
 		for (final ContainerState containerState : trial.state().containerStates())
 		{
-			System.out.println("Empty locations = " + containerState.emptyChunkSet());
-			System.out.println("Who = " + containerState.cloneWho().toChunkString());
-			System.out.println("What = " + containerState.cloneWhat().toChunkString());
+			System.out.println("Empty locations = " + containerState.emptyChunkSetCell());
+			System.out.println("Who = " + containerState.cloneWhoCell().toChunkString());
+			System.out.println("What = " + containerState.cloneWhatCell().toChunkString());
 		}
 		
 		// request legal moves again and play one of them again
@@ -102,9 +102,9 @@ public class Tutorial
 		// let's have a final look at how our state looks after this second move
 		for (final ContainerState containerState : trial.state().containerStates())
 		{
-			System.out.println("Empty locations = " + containerState.emptyChunkSet());
-			System.out.println("Who = " + containerState.cloneWho().toChunkString());
-			System.out.println("What = " + containerState.cloneWhat().toChunkString());
+			System.out.println("Empty locations = " + containerState.emptyChunkSetCell());
+			System.out.println("Who = " + containerState.cloneWhoCell().toChunkString());
+			System.out.println("What = " + containerState.cloneWhatCell().toChunkString());
 		}
 		
 		//---------------------------------------------------------------------

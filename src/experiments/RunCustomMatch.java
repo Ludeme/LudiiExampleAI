@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import game.Game;
-import player.GameLoader;
+import player.utils.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
@@ -38,7 +38,7 @@ public class RunCustomMatch
 	//-------------------------------------------------------------------------
 	
 	/** Name of game we wish to play */
-	static final String GAME_NAME = "board/space/blocking/Amazons.lud";
+	static final String GAME_NAME = "Amazons.lud";
 	
 	/** Number of games to play */
 	static final int NUM_GAMES = 10;

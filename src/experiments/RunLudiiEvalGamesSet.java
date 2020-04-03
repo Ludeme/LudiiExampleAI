@@ -3,8 +3,8 @@ package experiments;
 import java.util.Arrays;
 
 import game.Game;
-import player.GameLoader;
 import player.experiments.EvalGamesSet;
+import player.utils.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
@@ -24,7 +24,7 @@ public class RunLudiiEvalGamesSet
 	//-------------------------------------------------------------------------
 	
 	/** Name of game we wish to play */
-	static final String GAME_NAME = "board/space/blocking/Amazons.lud";
+	static final String GAME_NAME = "Amazons.lud";
 	
 	/** Whether to create a small GUI that can be used to manually interrupt the experiment */
 	static final boolean USE_GUI = false;
