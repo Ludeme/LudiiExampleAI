@@ -7,8 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 import game.Game;
-import game.mode.Mode.ModeType;
-import main.FastArrayList;
+import main.collections.FastArrayList;
 import util.AI;
 import util.Context;
 import util.Move;
@@ -275,10 +274,6 @@ public class ExampleDUCT extends AI
 		
 		// Don't allow games which are NOT simultaneous-move games
 		if (game.isAlternatingMoveGame())
-			return false;
-		
-		// Don't allow real-time games
-		if (game.mode().mode() == ModeType.Realtime)
 			return false;
 		
 		return true;

@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import game.Game;
 import game.types.GameType;
-import main.FastArrayList;
+import main.collections.FastArrayList;
 import util.AI;
 import util.Context;
 import util.Move;

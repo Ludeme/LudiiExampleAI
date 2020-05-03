@@ -6,7 +6,8 @@ import java.util.List;
 
 import game.Game;
 import game.types.GameType;
-import main.FastArrayList;
+import main.FileHandling;
+import main.collections.FastArrayList;
 import mcts.ExampleUCT;
 import player.utils.GameLoader;
 import random.RandomAI;
@@ -30,7 +31,7 @@ public class Tutorial
 	{
 		// first, let's request and print the list of all built-in
 		// game that can be directly loaded
-		final String[] games = GameLoader.listGames();
+		final String[] games = FileHandling.listGames();
 		System.out.println("Built-in games = " + Arrays.toString(games));
 		
 		// one of the games is "Amazons.lud". Let's load it
