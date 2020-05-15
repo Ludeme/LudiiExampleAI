@@ -3,7 +3,6 @@ package random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import game.Game;
-import game.types.GameType;
 import main.collections.FastArrayList;
 import util.AI;
 import util.Context;
@@ -54,7 +53,7 @@ public class RandomAI extends AI
 		
 		// If we're playing a simultaneous-move game, some of the legal moves may be 
 		// for different players. Extract only the ones that we can choose.
-		if ((game.stateFlags() & GameType.Simultaneous) != 0L)
+		if (!game.isAlternatingMoveGame())
 			legalMoves = AIUtils.extractMovesForMover(legalMoves, player);
 		
 		final int r = ThreadLocalRandom.current().nextInt(legalMoves.size());
