@@ -5,14 +5,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import game.Game;
-import game.types.GameType;
+import game.types.state.GameType;
 import main.FileHandling;
 import main.collections.FastArrayList;
 import mcts.ExampleUCT;
-import player.utils.GameLoader;
 import random.RandomAI;
 import util.AI;
 import util.Context;
+import util.GameLoader;
 import util.Move;
 import util.Trial;
 import util.model.Model;
@@ -62,7 +62,7 @@ public class Tutorial
 		
 		// loop through all the "container states" of the game state
 		// (in many games there is just a board, but there may also be hands, etc.)
-		for (final ContainerState containerState : trial.state().containerStates())
+		for (final ContainerState containerState : context.state().containerStates())
 		{
 			// for every container state we find (often just 1), we'll print a few things:
 			
@@ -87,7 +87,7 @@ public class Tutorial
 		game.apply(context, firstMove);
 		
 		// let's print our empty/who/what again, see how they have changed
-		for (final ContainerState containerState : trial.state().containerStates())
+		for (final ContainerState containerState : context.state().containerStates())
 		{
 			System.out.println("Empty locations = " + containerState.emptyChunkSetCell());
 			System.out.println("Who = " + containerState.cloneWhoCell().toChunkString());
@@ -101,7 +101,7 @@ public class Tutorial
 		game.apply(context, secondMove);
 		
 		// let's have a final look at how our state looks after this second move
-		for (final ContainerState containerState : trial.state().containerStates())
+		for (final ContainerState containerState : context.state().containerStates())
 		{
 			System.out.println("Empty locations = " + containerState.emptyChunkSetCell());
 			System.out.println("Who = " + containerState.cloneWhoCell().toChunkString());
