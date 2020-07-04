@@ -11,7 +11,6 @@ import main.collections.FastArrayList;
 import util.AI;
 import util.Context;
 import util.Move;
-import util.Trial;
 import util.action.Action;
 import utils.AIUtils;
 
@@ -94,14 +93,15 @@ public class ExampleDUCT extends AI
 				}
 			}
 			
-			Trial trialEnd = current.context.trial();
+			Context contextEnd = current.context;
 			
-			if (!trialEnd.over())
+			if (!contextEnd.trial().over())
 			{
 				// Run a playout if we don't already have a terminal game state in node
-				trialEnd = game.playout
+				contextEnd = new Context(contextEnd);
+				game.playout
 				(
-					new Context(current.context), 
+					contextEnd, 
 					null, 
 					-1.0, 
 					null, 
@@ -115,7 +115,7 @@ public class ExampleDUCT extends AI
 			
 			// This computes utilities for all players at the of the playout,
 			// which will all be values in [-1.0, 1.0]
-			final double[] utilities = AIUtils.utilities(trialEnd.state());
+			final double[] utilities = AIUtils.utilities(contextEnd);
 			
 			// Backpropagate utilities through the tree
 			while (current != null)

@@ -3,11 +3,11 @@ package experiments;
 import java.util.Arrays;
 
 import game.Game;
-import player.experiments.EvalGamesSet;
-import player.utils.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
+import supplementary.experiments.EvalGamesSet;
 import util.AI;
+import util.GameLoader;
 
 /**
  * Example of an experiment that uses Ludii's built-in EvalGamesSet class to

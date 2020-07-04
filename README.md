@@ -43,7 +43,7 @@ is no concrete timeline for when this will be supported.
 
 ### AI Development
 
-1. Download [Ludii's JAR file](http://ludii.games/downloads.php). This is the
+1. Download [Ludii's JAR file](http://ludii.games/download.php). This is the
 JAR file that can also be used to launch the Ludii application.
 2. Create a new Java project using your favourite IDE. You can also create a
 fork of this [github repository](https://github.com/Ludeme/LudiiExampleAI)
@@ -112,12 +112,12 @@ for visual inspections of your agent's behaviour during development, etc.),
 please cite [our paper on the Ludii system](https://arxiv.org/abs/1905.05013).
 This can be done using the following BibTeX entry:
 
-	@misc{Piette2019Ludii,
-		Author = {{\'E}ric Piette and Dennis J. N. J. Soemers and Matthew Stephenson and Chiara F. Sironi and Mark H. M. Winands and Cameron Browne},
+	@inproceedings{Piette2020Ludii,
+		Author = {{\'E}. Piette and D. J. N. J. Soemers and M. Stephenson and C. F. Sironi and M. H. M. Winands and C. Browne},
 		Title = {Ludii - The Ludemic General Game System},
-		Year = {2019},
-		Eprint = {arXiv:1905.05013},
-		url = {https://arxiv.org/abs/1905.05013}
+		Year = {2020},
+		booktitle = {Proceedings of the 2020 European Conference on Artificial Intelligence},
+		note = {To appear.}
 	}
 
 ## Background Info
@@ -142,6 +142,7 @@ Alternatively, the following email address may be used: `ludii(dot)games(at)gmai
 
 ## Changelog
 
+- 4 July, 2020: Updated repository for compatibility with new version 0.9.4 of Ludii.
 - 3 April, 2020: Updated repository for compatibility with new version 0.6.1 of Ludii.
 - 13 December, 2019: Updated repository for compatibility with new version 0.5.0 of Ludii.
 - 27 November, 2019: Updated repository for compatibility with new version 0.4.1 of Ludii.

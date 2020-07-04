@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import game.Game;
-import player.utils.GameLoader;
 import random.RandomAI;
 import search.mcts.MCTS;
 import util.AI;
 import util.Context;
+import util.GameLoader;
 import util.Trial;
 import util.model.Model;
 
