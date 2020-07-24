@@ -67,6 +67,8 @@ your project.
 	that your agent cannot play. For example, it may be unable to play simultaneous-move
 	games, and then be implemented to always return `false` for those. Ludii will then
 	know not to try to make your AI play such a game.
+	4. `public void closeAI()`. This method can be used to perform any cleanup of resources
+	when a game has been finished.
 For a simple example class that extends this abstract class, see the 
 [Example Random AI](src/random/RandomAI.java).
 5. Export your project to a new JAR file.
@@ -142,6 +144,7 @@ Alternatively, the following email address may be used: `ludii(dot)games(at)gmai
 
 ## Changelog
 
+- 24 July, 2020: Updated repository for compatibility with new version 1.0.0 of Ludii.
 - 4 July, 2020: Updated repository for compatibility with new version 0.9.4 of Ludii.
 - 3 April, 2020: Updated repository for compatibility with new version 0.6.1 of Ludii.
 - 13 December, 2019: Updated repository for compatibility with new version 0.5.0 of Ludii.
