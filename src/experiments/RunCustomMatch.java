@@ -59,7 +59,6 @@ public class RunCustomMatch
 	{
 		// load and create game
 		final Game game = GameLoader.loadGameFromName(GAME_NAME);
-		game.create();
 
 		final Trial trial = new Trial(game);
 		final Context context = new Context(game, trial);

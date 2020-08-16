@@ -2,12 +2,10 @@ package experiments;
 
 import java.util.Arrays;
 
-import game.Game;
 import random.RandomAI;
 import search.mcts.MCTS;
 import supplementary.experiments.EvalGamesSet;
 import util.AI;
-import util.GameLoader;
 
 /**
  * Example of an experiment that uses Ludii's built-in EvalGamesSet class to
@@ -52,10 +50,6 @@ public class RunLudiiEvalGamesSet
 	
 	public static void main(final String[] args)
 	{
-		// load and create game
-		final Game game = GameLoader.loadGameFromName(GAME_NAME);
-		game.create();
-		
 		// set up our match
 		final EvalGamesSet evalGamesSet = 
 				new EvalGamesSet(USE_GUI, MAX_WALL_TIME)

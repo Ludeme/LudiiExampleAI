@@ -36,7 +36,6 @@ public class Tutorial
 		
 		// one of the games is "Amazons.lud". Let's load it
 		Game game = GameLoader.loadGameFromName("Amazons.lud");
-		game.create();
 		
 		// the game's "stateFlags" contain properties of the game that may be
 		// important for some AI algorithms to know about
@@ -196,7 +195,6 @@ public class Tutorial
 		)
 		{
 			game = GameLoader.loadGameFromName(gameName);
-			game.create();
 			
 			trial = new Trial(game);
 			context = new Context(game, trial);
