@@ -23,7 +23,8 @@ the Ludii User Guide, accessible from the
 [Ludii webpage](http://ludii.games/index.php).
 
 We also recommend taking a look at the [Ludii Tutorials](https://ludiitutorials.readthedocs.io)
-for tutorials on AI development as well as any other aspects of Ludii.
+for tutorials on AI development as well as any other aspects of Ludii, and
+[Ludii Python AI](https://github.com/Ludeme/LudiiPythonAI) for implementing AIs using Python.
 
 ## Table of Contents
 - [Requirements](#requirements)
@@ -151,6 +152,7 @@ Alternatively, the following email address may be used: `ludii(dot)games(at)gmai
 
 ## Changelog
 
+- 31 August, 2020: Updated repository for compatibility with new version 1.0.5 of Ludii.
 - 16 August, 2020: Updated repository for compatibility with new version 1.0.3 of Ludii.
 - 24 July, 2020: Updated repository for compatibility with new version 1.0.0 of Ludii.
 - 4 July, 2020: Updated repository for compatibility with new version 0.9.4 of Ludii.
