@@ -336,11 +336,6 @@ public class ExampleDUCT extends AI
 			for (int p = 1; p <= numPlayers; ++p)
 			{
 				legalMovesPerPlayer.add(AIUtils.extractMovesForMover(allLegalMoves, p));
-					
-				if (legalMovesPerPlayer.get(p).isEmpty())
-				{
-					legalMovesPerPlayer.get(p).add(Game.createPassMove(context));
-				}
 			}
 			
 			// Prepare some arrays

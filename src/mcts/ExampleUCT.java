@@ -300,12 +300,6 @@ public class ExampleUCT extends AI
 			// This means we do not support simultaneous-move games.
 			unexpandedMoves = new FastArrayList<Move>(game.moves(context).moves());
 			
-			if (unexpandedMoves.isEmpty())
-			{
-				// We need to add a forced pass move
-				unexpandedMoves.add(Game.createPassMove(context));
-			}
-			
 			if (parent != null)
 				parent.children.add(this);
 		}
