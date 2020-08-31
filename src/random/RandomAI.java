@@ -46,9 +46,6 @@ public class RandomAI extends AI
 	{
 		FastArrayList<Move> legalMoves = game.moves(context).moves();
 		
-		if (legalMoves.isEmpty())
-			return Game.createPassMove(context);
-		
 		// If we're playing a simultaneous-move game, some of the legal moves may be 
 		// for different players. Extract only the ones that we can choose.
 		if (!game.isAlternatingMoveGame())
