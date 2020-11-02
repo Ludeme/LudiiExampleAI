@@ -39,10 +39,10 @@ public class Tutorial
 		
 		// the game's "stateFlags" contain properties of the game that may be
 		// important for some AI algorithms to know about
-		final long stateFlags = game.stateFlags();
+		final long gameFlags = game.gameFlags();
 		
 		// for example, we may like to know whether our game has stochastic elements
-		final boolean isStochastic = ((stateFlags & GameType.Stochastic) != 0L);
+		final boolean isStochastic = ((gameFlags & GameType.Stochastic) != 0L);
 		if (isStochastic)
 			System.out.println(game.name() + " is stochastic.");
 		else
