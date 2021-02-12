@@ -105,10 +105,8 @@ public class ExampleDUCT extends AI
 					null, 
 					-1.0, 
 					null, 
-					null, 
 					0, 
 					-1, 
-					0.f,
 					ThreadLocalRandom.current()
 				);
 			}

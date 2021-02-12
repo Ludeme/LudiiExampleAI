@@ -38,10 +38,7 @@ for tutorials on AI development as well as any other aspects of Ludii, and
 
 ## Requirements
 
-As of this time, only the development of agents in Java is supported. The
-**minimum version of Java** required is **Java 8**. Development of agents
-in other programming languages may be supported in the future, but there
-is no concrete timeline for when this will be supported.
+The **minimum version of Java** required is **Java 8**. 
 
 ## Getting Started
 
@@ -152,6 +149,7 @@ Alternatively, the following email address may be used: `ludii(dot)games(at)gmai
 
 ## Changelog
 
+- 12 February, 2021: Updated repository for compatibility with new version 1.1.14 of Ludii.
 - 2 November, 2020: Updated repository for compatibility with new version 1.1.0 of Ludii.
 - 31 August, 2020: Updated repository for compatibility with new version 1.0.5 of Ludii.
 - 16 August, 2020: Updated repository for compatibility with new version 1.0.3 of Ludii.
