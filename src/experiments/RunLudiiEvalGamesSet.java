@@ -11,8 +11,8 @@ import util.AI;
  * Example of an experiment that uses Ludii's built-in EvalGamesSet class to
  * run games between AIs.
  * 
- * See RunCustomMatch for an example that does not use Ludii's built-in Match
- * implementation.
+ * See RunCustomMatch for an example that does not use Ludii's built-in 
+ * EvalGamesSet implementation.
  * 
  * @author Dennis Soemers
  */
