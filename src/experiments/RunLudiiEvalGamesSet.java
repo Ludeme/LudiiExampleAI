@@ -2,10 +2,10 @@ package experiments;
 
 import java.util.Arrays;
 
+import other.AI;
 import random.RandomAI;
 import search.mcts.MCTS;
 import supplementary.experiments.EvalGamesSet;
-import util.AI;
 
 /**
  * Example of an experiment that uses Ludii's built-in EvalGamesSet class to
@@ -31,10 +31,12 @@ public class RunLudiiEvalGamesSet
 	static final int MAX_WALL_TIME = -1;
 	
 	/** List of agents for playing the match */
-	static final AI[] AGENTS = new AI[]{
-			new RandomAI(),
-			MCTS.createUCT()
-	};
+	static final AI[] AGENTS = 
+			new AI[]
+			{
+				new RandomAI(),
+				MCTS.createUCT()
+			};
 	
 	//-------------------------------------------------------------------------
 	

@@ -9,14 +9,14 @@ import game.types.state.GameType;
 import main.FileHandling;
 import main.collections.FastArrayList;
 import mcts.ExampleUCT;
+import other.AI;
+import other.GameLoader;
+import other.context.Context;
+import other.model.Model;
+import other.move.Move;
+import other.state.container.ContainerState;
+import other.trial.Trial;
 import random.RandomAI;
-import util.AI;
-import util.Context;
-import util.GameLoader;
-import util.Move;
-import util.Trial;
-import util.model.Model;
-import util.state.containerState.ContainerState;
 
 /**
  * A simple tutorial that demonstrates a variety of useful methods provided

@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import game.Game;
+import other.AI;
+import other.GameLoader;
+import other.context.Context;
+import other.model.Model;
+import other.trial.Trial;
 import random.RandomAI;
 import search.mcts.MCTS;
-import util.AI;
-import util.Context;
-import util.GameLoader;
-import util.Trial;
-import util.model.Model;
+
 
 /**
  * An example of a custom implementation of a match between different AIs,

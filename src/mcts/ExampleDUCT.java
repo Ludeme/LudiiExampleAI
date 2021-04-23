@@ -8,10 +8,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import game.Game;
 import main.collections.FastArrayList;
-import util.AI;
-import util.Context;
-import util.Move;
-import util.action.Action;
+import other.AI;
+import other.action.Action;
+import other.context.Context;
+import other.move.Move;
 import utils.AIUtils;
 
 /**
