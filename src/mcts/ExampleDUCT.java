@@ -9,6 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import game.Game;
 import main.collections.FastArrayList;
 import other.AI;
+import other.RankUtils;
 import other.action.Action;
 import other.context.Context;
 import other.move.Move;
@@ -113,7 +114,7 @@ public class ExampleDUCT extends AI
 			
 			// This computes utilities for all players at the of the playout,
 			// which will all be values in [-1.0, 1.0]
-			final double[] utilities = AIUtils.utilities(contextEnd);
+			final double[] utilities = RankUtils.utilities(contextEnd);
 			
 			// Backpropagate utilities through the tree
 			while (current != null)

@@ -7,9 +7,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import game.Game;
 import main.collections.FastArrayList;
 import other.AI;
+import other.RankUtils;
 import other.context.Context;
 import other.move.Move;
-import utils.AIUtils;
 
 /**
  * A simple example implementation of a standard UCT approach.
@@ -106,7 +106,7 @@ public class ExampleUCT extends AI
 			
 			// This computes utilities for all players at the of the playout,
 			// which will all be values in [-1.0, 1.0]
-			final double[] utilities = AIUtils.utilities(contextEnd);
+			final double[] utilities = RankUtils.utilities(contextEnd);
 			
 			// Backpropagate utilities through the tree
 			while (current != null)
