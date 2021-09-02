@@ -27,7 +27,7 @@ public class LaunchLudii
 		AIRegistry.registerAI("Example DUCT", () -> {return new ExampleDUCT();}, (game) -> {return new ExampleDUCT().supportsGame(game);});
 		
 		// Run Ludii
-		StartDesktopApp.main(args);
+		StartDesktopApp.main(new String[0]);
 	}
 
 }
