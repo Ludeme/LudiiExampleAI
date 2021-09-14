@@ -52,7 +52,7 @@ to get started with some example implementations of basic agents.
 3. Make sure to add the Ludii's JAR file downloaded in step 1 as a library for
 your project.
 4. Any agent that you'd like to implement will have to extend the abstract class
-`util.AI`. This contains three methods that may be overridden:
+`util.AI`. This contains four methods that may be overridden:
 	1. `public Move selectAction(final Game game, final Context context, 
 	final double maxSeconds, final int maxIterations, final int maxDepth)`.
 	It takes a reference to the `game` being played, and the current 
