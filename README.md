@@ -70,8 +70,10 @@ your project.
 	know not to try to make your AI play such a game.
 	4. `public void closeAI()`. This method can be used to perform any cleanup of resources
 	when a game has been finished.
-For a simple example class that extends this abstract class, see the 
+	
+    For a simple example class that extends this abstract class, see the 
 [Example Random AI](src/random/RandomAI.java).
+
 5. Export your project to a new JAR file.
 
 ### Loading AI in the Ludii Application
