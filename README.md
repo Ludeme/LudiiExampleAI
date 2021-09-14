@@ -29,6 +29,9 @@ for tutorials on AI development as well as any other aspects of Ludii, and
 ## Table of Contents
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
+	- [AI Development](#ai-development)
+	- [Loading AI in the Ludii Application - Programmatically](#loading-ai-in-the-ludii-application---programmatically) 
+	- [Loading AI in the Ludii Application - From JAR](#loading-ai-in-the-ludii-application---from-jar) 
 - [Example Agents](#example-agents)
 - [Citing Information](#citing-information)
 - [Background Info](#background-info)
@@ -76,19 +79,44 @@ your project.
 
 5. Export your project to a new JAR file.
 
-### Loading AI in the Ludii Application
+### Loading AI in the Ludii Application - Programmatically
+
+The [LaunchLudii.java](src/main/LaunchLudii.java) file included in this example repository
+demonstrates how you can write your own main method that programmatically launches the
+Ludii application (including its graphical user interface), while also registering your
+own custom AI implementations such that they can be selected in Ludii's dropdown menus for
+agent selection. The code used for this looks as follows:
+
+    // Register our example AIs
+    AIRegistry.registerAI("Example Random AI", () -> {return new RandomAI();}, (game) -> {return true;});
+    AIRegistry.registerAI("Example UCT", () -> {return new ExampleUCT();}, (game) -> {return new ExampleUCT().supportsGame(game);});
+    AIRegistry.registerAI("Example DUCT", () -> {return new ExampleDUCT();}, (game) -> {return new ExampleDUCT().supportsGame(game);});
+		
+    // Run Ludii
+    StartDesktopApp.main(new String[0]);
+    
+Each of the three `AIRegistry.registerAI()` calls registers a custom AI entry for the
+dropdown menus in Ludii. In each of these calls, the first argument is the name displayed
+in dropdown menus, the second argument is a function that Ludii calls whenever it wishes
+to instantiate such an AI object, and the third argument is a function that, for any
+give game, tells Ludii whether or not that agent is applicable to that game. For example,
+an agent that cannot play simultaneous-move games should return `false` when a simultaneous-move
+game is passed into this function. The final line of code simply launches the Ludii application.
+
+### Loading AI in the Ludii Application - From JAR
 
 In the Ludii application, the dialog in which agent types can be assigned to
 players can be opened by clicking one of the player names in the GUI, or by
 selecting `Ludii > Preferences...` in the menubar. In addition to a
 number of built-in agents, the drop-down menus contain a `From JAR` option.
 
-To load your own custom AI implementation into Ludii, select the `From JAR`
-option, and then select the JAR file containing your custom AI's .class file.
-A dialog will appear with all the different classes in the selected JAR file
-that extend Ludii's `util.AI` abstract class, and you will be required to
-choose one of them. Note that this means that it is fine if you have a single
-JAR file containing many different, custom AI implementations; they can all be
+To load your own custom AI implementation into Ludii, export your project
+containing it to a new JAR file. Next, select the `From JAR` option, and 
+then select the JAR file containing your custom AI's .class file. A dialog 
+will appear with all the different classes in the selected JAR file that 
+extend Ludii's `util.AI` abstract class, and you will be required to choose 
+one of them. Note that this means that it is fine if you have a single JAR 
+file containing many different, custom AI implementations; they can all be
 loaded.
 
 Ludii will attempt to instantiate an agent of the selected class by calling
