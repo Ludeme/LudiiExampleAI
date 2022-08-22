@@ -87,13 +87,15 @@ Ludii application (including its graphical user interface), while also registeri
 own custom AI implementations such that they can be selected in Ludii's dropdown menus for
 agent selection. The code used for this looks as follows:
 
-    // Register our example AIs
-    AIRegistry.registerAI("Example Random AI", () -> {return new RandomAI();}, (game) -> {return true;});
-    AIRegistry.registerAI("Example UCT", () -> {return new ExampleUCT();}, (game) -> {return new ExampleUCT().supportsGame(game);});
-    AIRegistry.registerAI("Example DUCT", () -> {return new ExampleDUCT();}, (game) -> {return new ExampleDUCT().supportsGame(game);});
+```java
+// Register our example AIs
+AIRegistry.registerAI("Example Random AI", () -> {return new RandomAI();}, (game) -> {return true;});
+AIRegistry.registerAI("Example UCT", () -> {return new ExampleUCT();}, (game) -> {return new ExampleUCT().supportsGame(game);});
+AIRegistry.registerAI("Example DUCT", () -> {return new ExampleDUCT();}, (game) -> {return new ExampleDUCT().supportsGame(game);});
 		
-    // Run Ludii
-    StartDesktopApp.main(new String[0]);
+// Run Ludii
+StartDesktopApp.main(new String[0]);
+```
     
 Each of the three `AIRegistry.registerAI()` calls registers a custom AI entry for the
 dropdown menus in Ludii. In each of these calls, the first argument is the name displayed
