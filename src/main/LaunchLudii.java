@@ -22,9 +22,14 @@ public class LaunchLudii
 	public static void main(final String[] args)
 	{
 		// Register our example AIs
-		AIRegistry.registerAI("Example Random AI", () -> {return new RandomAI();}, (game) -> {return true;});
-		AIRegistry.registerAI("Example UCT", () -> {return new ExampleUCT();}, (game) -> {return new ExampleUCT().supportsGame(game);});
-		AIRegistry.registerAI("Example DUCT", () -> {return new ExampleDUCT();}, (game) -> {return new ExampleDUCT().supportsGame(game);});
+		if (!AIRegistry.registerAI("Example Random AI", () -> {return new RandomAI();}, (game) -> {return true;}))
+			System.err.println("WARNING! Failed to register AI because one with that name already existed!");
+		
+		if (!AIRegistry.registerAI("Example UCT", () -> {return new ExampleUCT();}, (game) -> {return new ExampleUCT().supportsGame(game);}))
+			System.err.println("WARNING! Failed to register AI because one with that name already existed!");
+		
+		if (!AIRegistry.registerAI("Example DUCT", () -> {return new ExampleDUCT();}, (game) -> {return new ExampleDUCT().supportsGame(game);}))
+			System.err.println("WARNING! Failed to register AI because one with that name already existed!");
 		
 		// Run Ludii
 		StartDesktopApp.main(new String[0]);
