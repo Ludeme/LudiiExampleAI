@@ -124,8 +124,11 @@ public class ExampleDUCT extends AI
 					// This node was not newly expanded in this iteration
 					for (int p = 1; p <= game.players().count(); ++p)
 					{
-						current.visitCounts[p][current.lastSelectedMovesPerPlayer[p]] += 1;
-						current.scoreSums[p][current.lastSelectedMovesPerPlayer[p]] += utilities[p];
+						if (current.visitCounts[p].length > 0)
+						{
+							current.visitCounts[p][current.lastSelectedMovesPerPlayer[p]] += 1;
+							current.scoreSums[p][current.lastSelectedMovesPerPlayer[p]] += utilities[p];
+						}
 					}
 				}
 				
@@ -216,9 +219,8 @@ public class ExampleDUCT extends AI
 	}
 	
 	/**
-	 * Selects the move we wish to play using the "Robust Child" strategy
-	 * (meaning that we play the move leading to the child of the root node
-	 * with the highest visit count).
+	 * Selects the move we wish to play as the one with the
+	 * highest expected value.
 	 * 
 	 * @param rootNode
 	 * @return
